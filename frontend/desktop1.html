@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Today</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .sidebar {
+        height: 100vh;
+        background-color: #343a40;
+      }
+      .sidebar a {
+        color: white;
+      }
+      .sidebar a:hover {
+        background-color: #495057;
+      }
+      .sidebar a.active {
+        background-color: #495057;
+      }
+      .task-card {
+        margin-bottom: 15px;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 15px;
+        background-color: white;
+      }
+      .task-title {
+        font-weight: bold;
+      }
+      .task-important {
+        color: red;
+      }
+      .task-urgent {
+        color: blue;
+      }
+      .task-completed {
+        color: green;
+      }
+      .task-date {
+        font-size: 0.9em;
+        color: #6c757d;
+      }
+      .task-label {
+        background-color: #e2e3e5;
+        border-radius: 5px;
+        padding: 2px 5px;
+        margin-right: 5px;
+      }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+      <nav class="sidebar p-3">
+        <h2 class="text-white">To-Do</h2>
+        <a href="desktop2.html" class="d-block">Добавить задачу</a>
+        <a href="desktop3.html" class="d-block">Поиск</a>
+        <a href="desktop1.html" class="d-block active">Сегодня</a>
+      </nav>
+
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <img src="IMG_5467-Photoroom.png" alt="logo" width="50" />
+          <h1>Сегодня</h1>
+          <div>
+            <a href="desktop2.html" class="btn btn-success mr-2">Добавить задачу</a>
+            <button class="btn btn-secondary">Выход</button>
+          </div>
+        </div>
+
+          <div class="mt-4">
+            <div class="card task-card">
+              <div class="task-title task-important">Важно! Приём у зубного</div>
+              <div class="task-date">5 февраля, 10:00</div>
+              <div>
+                <span class="task-label">Завтра</span>
+                <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editTaskModal">Редактировать</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteTask(this)">Удалить</button>
+              </div>
+            </div>
+  
+            <div class="card task-card">
+              <div class="task-title task-urgent">Важно! Сходить в магазин</div>
+              <div class="task-date">Не определено</div>
+              <div>
+                <span class="task-label">Сегодня</span>
+                <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editTaskModal">Редактировать</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteTask(this)">Удалить</button>
+                
+              </div>
+            </div>
+  
+            <div class="card task-card">
+              <div class="task-title task-completed">Выполнено: Полить цветы</div>
+              <div class="task-date">Не определено</div>
+              <div>
+                <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editTaskModal">Редактировать</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteTask(this)">Удалить</button>
+              </div>
+            </div>
+          </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5"></script>
+</body>
+
+</html>

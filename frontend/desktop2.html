@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NewTask</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .sidebar {
+        height: 100vh;
+        background-color: #343a40;
+      }
+      .sidebar a {
+        color: white;
+      }
+      .sidebar a:hover {
+        background-color: #495057;
+      }
+      .sidebar a.active {
+        background-color: #495057;
+      }
+      .task-card {
+        margin-bottom: 15px;
+      }
+      .task-title {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="d-flex">
+      <nav class="sidebar p-3">
+        <h2 class="text-white">To-Do</h2>
+        <a href="desktop2.html" class="d-block active">Добавить задачу</a>
+        <a href="desktop3.html" class="d-block">Поиск</a>
+        <a href="desktop1.html" class="d-block">Сегодня</a>
+        <!-- <a href="#" class="d-block">Предстоящие</a> -->
+      </nav>
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <img src="IMG_5467-Photoroom.png" alt="logo" width="50" />
+          <h1></h1>
+          <button class="btn btn-secondary">Выход</button>
+        </div>
+      <div class="container">
+        <div class="task-container">
+            <h1>Создать новую задачу</h1>
+            <label for="taskTitle"> Название</label>
+              <input
+                type="text"
+                class="form-control"
+                id="taskTitle"
+                placeholder="Введите заголовок задачи..."
+              />
+            </div>
+            <div class="form-group">
+              <label for="taskDescription">Описание задачи</label>
+              <textarea
+                class="form-control"
+                id="taskDescription"
+                rows="5"
+                placeholder="Введите описание задачи..."
+              ></textarea>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-success">Добавить задачу</button>
+            </div>
+        </div>
+        <footer class="mt-5 text-center">
+            <p>
+              <img src="IMG_5467-Photoroom.png" alt="logo" width="40" />
+              Управляй своими задачами легко и с удовольствием — успевай больше с
+              To-Do!
+            </p>
+          </footer>
+        </div>
+      </div>
+  
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+  </html>
+      
+    </div>
+  </body>
+</html>
