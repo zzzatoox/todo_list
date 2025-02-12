@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NewTask</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="d-flex justify-content-between align-items-center">
+        <img class = "img-logo" src="./images/logo.png" alt="logo" width="50" />
+        <div>
+          <button class="btn btn-secondary">Выход</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="d-flex">
+        <nav class="sidebar">
+          <a href="add_task.html" class="link-to-add d-block active">Добавить задачу</a>
+          <a href="search.html" class="link-to-search d-block">Поиск</a>
+          <a href="index.html" class="link-to-today d-block">Сегодня</a>
+          <!-- <a href="#" class="d-block">Предстоящие</a> -->
+        </nav>
+
+        <div class="container">
+          <h2>Задача</h2>
+          <label for="taskTitle"> Название</label>
+          <input
+            type="text"
+            class="form-control"
+            id="taskTitle"
+            placeholder="Заголовок задачи..."
+          />
+          <div class="form-group">
+            <label for="taskDescription">Описание задачи</label>
+            <textarea
+              class="form-control"
+              id="taskDescription"
+              rows="8"
+              placeholder="Описание задачи..."
+            ></textarea>
+          </div>
+
+          <button class="btn btn-success btn-add">Добавить</button>
+          
+          <form>
+            <p>
+                <label for="date">Дата: </label>
+                <input type="date" id="date" name="date"/>
+            </p>
+            <p>
+              <label for="time">Время: </label>
+              <input type="time" id="time" name="time"/>
+            </p>
+        </form>
+        </div>    
+      </div>  
+    </main>
+
+    <footer class="footer text-center">
+      <div class="container-footer">
+        <p>
+          <img src="./images/logo.png" alt="logo" width="40" />
+          Управляй своими задачами легко и с удовольствием — успевай больше с
+          To-Do!
+        </p>
+      </div>
+    </footer>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
