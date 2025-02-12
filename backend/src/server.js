@@ -3,6 +3,7 @@ const session = require("express-session");
 const cors = require("cors");
 const taskRoutes = require("./routes/taskRoutes");
 const authRoutes = require("./routes/authRoutes");
+const { swaggerSpec, swaggerUi } = require("./config/swagger");
 require("dotenv").config();
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(
 
 app.use("/api/auth", authRoutes);
 app.use("/api", taskRoutes);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get("/", (req, res) => {
   res.send("Hello from the backend!");

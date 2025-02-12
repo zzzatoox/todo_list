@@ -17,6 +17,8 @@
     "express-session": "^1.18.1",
     "express-validator": "^7.2.1",
     "nodemon": "^3.1.9",
-    "pg": "^8.13.1"
+    "pg": "^8.13.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   }
 }
