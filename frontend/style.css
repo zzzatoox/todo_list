@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+body {
+    margin: 0;
+    background-color: #D9D9D9;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+  }
+
+  p, a {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  label {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+/*  */
+
+  .btn-secondary {
+    margin-right: 20px;
+  }
+
+  .btn-add {
+    margin-top: 120px;
+    float: right;
+  }
+  
+  .image-button {
+    width: 30px;
+    height: 30px;
+    background-image: url('./images/icons/three-dots-vertical.svg');
+    border: none;
+    background-size: cover;
+  }
+
+  .close {
+    margin-left: 10px;
+  }
+
+/*  */
+
+  .link-to-add:before {
+    display: inline-block;
+    font-family: "bootstrap-icons";
+    content: "\F4FA";
+    margin-right: 5px;
+  }
+  
+  .link-to-today:before {
+    display: inline-block;
+    font-family: "bootstrap-icons";
+    content: "\F1E4";
+    margin-right: 5px;
+  }
+
+  .link-to-search:before {
+    display: inline-block;
+    font-family: "bootstrap-icons";
+    content: "\F52A";
+    margin-right: 5px;
+  }
+
+/*  */
+  .sidebar {
+    background-color: #D9D9D9;
+    padding-left: 1rem;
+  }
+
+  .sidebar a {
+    color: black;
+    margin-left: 10px;
+  }
+  
+  .sidebar .active {
+    text-decoration: underline;
+  }
+
+/*  */
+
+  .task-card {
+    margin-bottom: 25px;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    background-color: white;
+  }
+
+  .task-title {
+    font-weight: bold;
+  }
+
+  .task-important {
+    color: red;
+  }
+  
+  .task-urgent {
+    color: blue;
+  }
+
+  .task-completed {
+    color: green;
+  }
+
+  .task-time {
+    font-size: 0.9em;
+    color: #6c757d;
+  }
+
+  .task-time::before {
+    font-family: "bootstrap-icons";
+    content: "\F102";
+    margin-right: 5px;
+  }
+
+  .task-label {
+    background-color: #e2e3e5;
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin-right: 5px;
+  }
+
+/*  */
+
+  .badge {
+    width: 120px;
+    height: 30px;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .badge-text {
+    color: white;
+  }
+
+  .rounded-pill {
+    border-radius: 15%;
+  }
+
+/*  */
+
+  .search-container {
+    display: flex;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+
+  .search-container:before {
+    font-family: "bootstrap-icons";
+    content: "\F52A";
+    font-size: 24px;
+    margin-right: 8px;
+    opacity: 50%;
+  }
+/*  */
+
+  .header {
+    margin-bottom: 50px;
+    background-color: #FFFFFF;
+  }
+
+  .img-logo {
+    margin: 19px 0 19px 19px;
+  }
+
+  .container {
+    padding: 24px;
+    max-width: 800px;
+    margin-right: 21%;
+    min-height: 100vh;
+    background-color: #FFFFFF;
+    border-radius: 2%;
+    padding-bottom: 50px;
+  }
+
+  .container-footer {
+    background-color: #FFFFFF;
+    margin: 50px 0px 0px 0px;
+  }
+
+  .container_task-card {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .empty-container {
+    margin-right: 155px;
+  }
+
+  .footer p {
+    margin-bottom: 0px;
+    padding: 30px 0px 40px 40px;
+  }
+
+  .dropdown-toggle:after {
+    font-family: "bootstrap-icons";
+    content: "\F5D3";
+    border-top: 0em solid blue; /* Синий цвет стрелки */
+}

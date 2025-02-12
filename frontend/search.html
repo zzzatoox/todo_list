@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Поиск задачи</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    
+    <link rel="stylesheet" href="./style.css">
+    
+  </head>
+
+  <body>
+
+    <header class="header">
+      <div class="d-flex justify-content-between align-items-center">
+        <img class = "img-logo" src="./images/logo.png" alt="logo" width="50" />
+        <div>
+          <button class="btn btn-secondary">Выход</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="d-flex">
+
+        <nav class="sidebar">
+          <a href="add_task.html" class="link-to-add d-block">Добавить задачу</a>
+          <a href="search.html" class="link-to-search d-block active">Поиск</a>
+          <a href="index.html" class="link-to-today d-block">Сегодня</a>
+          <!-- <a href="#" class="d-block">Предстоящие</a> -->
+        </nav>
+  
+        <div class="container">
+          <h2>Поиск</h2>
+          
+          <div class="search-container">
+            <div class="input-group mb-1">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Введите задачу для поиска..."
+              />
+              <!-- <div class="input-group-append">
+                
+              </div> -->
+              <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+          </div>
+          
+          <div class="text-center">
+            <p>Ничего не найдено...</p>
+          </div>
+  
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer text-center">
+      <div class="container-footer">
+        <p>
+          <img src="./images/logo.png" alt="logo" width="40" />
+          Управляй своими задачами легко и с удовольствием — успевай больше с
+          To-Do!
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
