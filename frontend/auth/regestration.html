@@ -76,36 +76,33 @@
     </nav>
 
     <div class="container text-center">
-      <form action="" class="form-horizontal">
+      <form action="" class="form-horizontal" id="registerForm">
         <div class="form-group">
-          <label for="inputName3" class="form-label">ФИО</label>
-          <input type="text" class="form-control" id="inputname3" required />
-        </div>
-        <!-- <div class="form-group">
-          <label for="inputSurname3" class="form-label">Фамилия</label>
-          <input type="text" class="form-control" id="inputsurname3" required />
-        </div> -->
-        <div class="form-group">
-          <label for="inputEmail3" class="form-label">Почта</label>
-          <input type="email" class="form-control" id="inputemail3" required />
-        </div>
-        <div class="form-group">
-          <label for="inputpassword3" class="form-label">Пароль</label>
+          <label for="register-email" class="form-label">Почта</label>
           <input
-            type="password"
+            type="email"
             class="form-control"
-            id="inputpassword3"
+            id="register-email"
             required
           />
         </div>
         <div class="form-group">
-          <label for="inputConfirmPassword" class="form-label"
+          <label for="register-password" class="form-label">Пароль</label>
+          <input
+            type="password"
+            class="form-control"
+            id="register-password"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="register-password2" class="form-label"
             >Повторите пароль</label
           >
           <input
             type="password"
             class="form-control"
-            id="inputConfirmPassword"
+            id="register-password2"
             required
           />
         </div>
@@ -117,17 +114,16 @@
             </label>
           </div>
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-dark my-3">
-            Зарегистрироваться
-          </button>
-        </div>
-        <p>
-          <img src="IMG_5467-Photoroom.png" alt="logo" width="40" />
-          <!-- Управляй своими задачами легко и с удовольствием — успевай больше с
-          To-Do! -->
-        </p>
+        <button type="submit" class="btn btn-dark my-3">
+          Зарегистрироваться
+        </button>
       </form>
+      <p>
+        <img src="IMG_5467-Photoroom.png" alt="logo" width="40" />
+        <!-- Управляй своими задачами легко и с удовольствием — успевай больше с
+        To-Do! -->
+      </p>
     </div>
+    <script type="module" src="../js/main.js"></script>
   </body>
 </html>

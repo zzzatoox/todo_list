@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Today</title>
@@ -8,133 +8,169 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <header class="header">
-    <div class="d-flex justify-content-between align-items-center">
-      <img class = "img-logo" src="./images/logo.png" alt="logo" width="50" />
-      <div>
-        <a href="add_task.html" class="btn btn-success mr-2">Добавить задачу</a>
-        <button class="btn btn-secondary">Выход</button>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="d-flex justify-content-between align-items-center">
+        <img class="img-logo" src="./images/logo.png" alt="logo" width="50" />
+        <div>
+          <a href="add_task.html" class="btn btn-success mr-2"
+            >Добавить задачу</a
+          >
+          <button class="btn btn-secondary" id="logoutButton">Выход</button>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main class="main">
-    <div class="d-flex">
-      <aside class="sidebar">
-        <a href="add_task.html" class="link-to-add">Добавить задачу</a>
-        <a href="search.html" class="link-to-search d-block">Поиск</a>
-        <a href="index.html" class="link-to-today d-block active">Сегодня</a>
-      </aside>
+    <main class="main">
+      <div class="d-flex">
+        <aside class="sidebar">
+          <a href="add_task.html" class="link-to-add">Добавить задачу</a>
+          <a href="search.html" class="link-to-search d-block">Поиск</a>
+          <a href="index.html" class="link-to-today d-block active">Сегодня</a>
+        </aside>
 
-      <div class="container">
-        <h2>Сегодня</h2>
-        <div class="mt-4">
+        <div class="container">
+          <h2>Сегодня</h2>
+          <div class="mt-4">
+            <div class="card task-card">
+              <div class="container_task-card">
+                <div class="card-info">
+                  <span class="badge badge-danger badge-pill">Важно!</span>
+                  <div class="task-title">Приём у зубного</div>
+                  <div class="task-time">10:00</div>
+                </div>
 
-          <div class="card task-card">
-            <div class="container_task-card">
-              <div class="card-info">
-                <span class="badge badge-danger badge-pill">Важно!</span>
-                <div class="task-title">Приём у зубного</div>
-                <div class="task-time">10:00</div>
-              </div>
-            
-              <div class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"></a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Удалить</a></li>
-                  <li><a class="dropdown-item" href="add_task.html">Редактировать</a></li>
-                </ul>
+                <div class="dropdown">
+                  <a
+                    class="dropdown-toggle"
+                    data-toggle="dropdown"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
+                  ></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Удалить</a></li>
+                    <li>
+                      <a class="dropdown-item" href="add_task.html"
+                        >Редактировать</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-  
-          <div class="card task-card">
-            <div class="container_task-card">
-              <div class="card-info"> 
-                <span class="badge badge-primary badge-pill">Primary</span>
-                <div class="task-title">Сходить в магазин</div>
-                <div class="task-time">Не определено</div>
+
+            <div class="card task-card">
+              <div class="container_task-card">
+                <div class="card-info">
+                  <span class="badge badge-primary badge-pill">Primary</span>
+                  <div class="task-title">Сходить в магазин</div>
+                  <div class="task-time">Не определено</div>
+                </div>
+
+                <div class="dropdown">
+                  <a
+                    class="dropdown-toggle"
+                    data-toggle="dropdown"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
+                  ></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Удалить</a></li>
+                    <li>
+                      <a class="dropdown-item" href="add_task.html"
+                        >Редактировать</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </div>
-              
-              <div class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"></a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Удалить</a></li>
-                  <li><a class="dropdown-item" href="add_task.html">Редактировать</a></li>
-                </ul>
-              </div>
-            </div>
-            
-            
-            <!-- <div>
+
+              <!-- <div>
               <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editTaskModal">Редактировать</button>
               <button class="btn btn-danger btn-sm" onclick="deleteTask(this)">Удалить</button>
             </div> -->
-          </div>
+            </div>
 
-          <div class="card task-card">
-            <div class="container_task-card">
-              <div class="card-info">
-                <span class="badge badge-primary badge-pill">Primary</span>
-                <div class="task-title">Сходить в магазин</div>
-                <div class="task-time">Не определено</div>
-              </div>
-              
-              <div class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"></a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Удалить</a></li>
-                  <li><a class="dropdown-item" href="add_task.html">Редактировать</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-  
-          <div class="card task-card">
-            <div class="container_task-card">
-              <div class="card-info">
-                <span class="badge badge-success badge-pill">Выполнено</span>
-                <div class="task-title">Полить цветы</div>
-                <div class="task-time">Не определено</div>
-              </div>
-              
-              <div class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"></a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Удалить</a></li>
-                  <li><a class="dropdown-item" href="add_task.html">Редактировать</a></li>
-                </ul>
+            <div class="card task-card">
+              <div class="container_task-card">
+                <div class="card-info">
+                  <span class="badge badge-primary badge-pill">Primary</span>
+                  <div class="task-title">Сходить в магазин</div>
+                  <div class="task-time">Не определено</div>
+                </div>
+
+                <div class="dropdown">
+                  <a
+                    class="dropdown-toggle"
+                    data-toggle="dropdown"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
+                  ></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Удалить</a></li>
+                    <li>
+                      <a class="dropdown-item" href="add_task.html"
+                        >Редактировать</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-            
+
+            <div class="card task-card">
+              <div class="container_task-card">
+                <div class="card-info">
+                  <span class="badge badge-success badge-pill">Выполнено</span>
+                  <div class="task-title">Полить цветы</div>
+                  <div class="task-time">Не определено</div>
+                </div>
+
+                <div class="dropdown">
+                  <a
+                    class="dropdown-toggle"
+                    data-toggle="dropdown"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
+                  ></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Удалить</a></li>
+                    <li>
+                      <a class="dropdown-item" href="add_task.html"
+                        >Редактировать</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
+        <div class="container_empty"></div>
       </div>
+    </main>
 
-      <div class="container_empty">
-        
+    <footer class="footer text-center">
+      <div class="container-footer">
+        <p>
+          <img src="./images/logo.png" alt="logo" width="40" />
+          Управляй своими задачами легко и с удовольствием — успевай больше с
+          To-Do!
+        </p>
       </div>
-    </div>
-  </main>
-    
-    
-  <footer class="footer text-center">
-    <div class="container-footer">
-      <p>
-        <img src="./images/logo.png" alt="logo" width="40" />
-        Управляй своими задачами легко и с удовольствием — успевай больше с
-        To-Do!
-      </p>
-    </div>
-  </footer>
-    
+    </footer>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <script type="module" src="./js/main.js"></script>
+  </body>
 </html>
