@@ -12,28 +12,80 @@
 </head>
 <body>
   <header class="header">
-    <div class="d-flex justify-content-between align-items-center">
-      <img class = "img-logo" src="./images/logo.png" alt="logo" width="50" />
-      <div>
-        <a href="add_task.html" class="btn btn-success mr-2">Добавить задачу</a>
-        <button class="btn btn-secondary">Выход</button>
-      </div>
-    </div>
+      <nav class="d-flex justify-content-between align-items-center">
+        <img class = "img-logo" src="./images/logo.png" alt="logo" width="50" />
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Поиск</button>
+        </form>
+        <div>
+          
+          <button type="button" class="btn btn-success mr-2" data-toggle="modal" data-target="#staticBackdrop">Добавить задачу</button>
+
+          <!-- Модальное окно -->
+          <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Новая задача</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="container">
+                    <h2>Задача</h2>
+                    <label for="taskTitle"> Название</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="taskTitle"
+                      placeholder="Заголовок задачи..."
+                    />
+                    <div class="form-group">
+                      <label for="taskDescription">Описание задачи</label>
+                      <textarea
+                        class="form-control"
+                        id="taskDescription"
+                        rows="8"
+                        placeholder="Описание задачи..."
+                      ></textarea>
+                    </div>
+          
+                    <form>
+                      <p>
+                          <label for="date">Дата: </label>
+                          <input type="date" id="date" name="date"/>
+                      </p>
+                      <p>
+                        <label for="time">Время: </label>
+                        <input type="time" id="time" name="time"/>
+                      </p>
+                    </form>
+                  </div>    
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                  <button type="button" class="btn btn-primary">Добавить</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <button class="btn btn-secondary">Выход</button>
+        </div>
+        
+      </nav>
+      
   </header>
 
   <main class="main">
     <div class="d-flex">
-      <aside class="sidebar">
-        <a href="add_task.html" class="link-to-add">Добавить задачу</a>
-        <a href="search.html" class="link-to-search d-block">Поиск</a>
-        <a href="index.html" class="link-to-today d-block active">Сегодня</a>
-      </aside>
-
       <div class="container">
         <h2>Сегодня</h2>
         <div class="mt-4">
 
-          <div class="card task-card">
+          <div type="button" class="card task-card" data-toggle="modal" data-target="#staticBackdrop">
             <div class="container_task-card">
               <div class="card-info">
                 <span class="badge badge-danger badge-pill">Важно!</span>
@@ -51,7 +103,7 @@
             </div>
           </div>
   
-          <div class="card task-card">
+          <div type="button" class="card task-card" data-toggle="modal" data-target="#staticBackdrop">
             <div class="container_task-card">
               <div class="card-info"> 
                 <span class="badge badge-primary badge-pill">Primary</span>
@@ -75,7 +127,7 @@
             </div> -->
           </div>
 
-          <div class="card task-card">
+          <div type="button" class="card task-card" data-toggle="modal" data-target="#staticBackdrop">
             <div class="container_task-card">
               <div class="card-info">
                 <span class="badge badge-primary badge-pill">Primary</span>
@@ -93,7 +145,7 @@
             </div>
           </div>
   
-          <div class="card task-card">
+          <div type="button" class="card task-card" data-toggle="modal" data-target="#staticBackdrop">
             <div class="container_task-card">
               <div class="card-info">
                 <span class="badge badge-success badge-pill">Выполнено</span>
