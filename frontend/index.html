@@ -13,17 +13,20 @@
 <body>
   <header class="header">
       <nav class="d-flex justify-content-between align-items-center">
-        <img class = "img-logo" src="./images/logo.png" alt="logo" width="50" />
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Поиск</button>
-        </form>
+        <div class="d-flex align-items-center">
+          <img class = "img-logo" src="./images/logo.png" alt="logo" width="50" />
+          <form class="d-flex" role="search">
+            <input class="form-control width-search me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Поиск</button>
+          </form>
+        </div>
         <div>
           
-          <button type="button" class="btn btn-success mr-2" data-toggle="modal" data-target="#staticBackdrop">Добавить задачу</button>
+          <button type="button" class="btn btn-success mr-2" data-toggle="modal" data-target="#addTaskModal">Добавить задачу</button>
 
           <!-- Модальное окно -->
-          <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+           <!-- data-backdrop="static" для отключения закрытия модального окна кликом на экран -->
+           <div class="modal fade" id="addTaskModal" data-backdrop="true" data-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -34,8 +37,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="container">
-                    <h2>Задача</h2>
-                    <label for="taskTitle"> Название</label>
+                    <label for="taskTitle">Название</label>
                     <input
                       type="text"
                       class="form-control"
@@ -54,14 +56,20 @@
           
                     <form>
                       <p>
-                          <label for="date">Дата: </label>
-                          <input type="date" id="date" name="date"/>
+                        <label for="date">Дата: </label>
+                        <input type="date" id="date" name="date"/>
                       </p>
                       <p>
                         <label for="time">Время: </label>
                         <input type="time" id="time" name="time"/>
                       </p>
                     </form>
+                    <div class="form-check  d-flex justify-content-between">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                      <label class="form-check-label" for="flexCheckChecked">
+                        Высший приоритет
+                      </label>
+                    </div>
                   </div>    
                 </div>
                 <div class="modal-footer">
@@ -74,7 +82,6 @@
           
           <button class="btn btn-secondary">Выход</button>
         </div>
-        
       </nav>
       
   </header>
@@ -84,42 +91,127 @@
       <div class="container">
         <h2>Сегодня</h2>
         <div class="mt-4">
+          <!-- Модальное окно для изменения задачи -->
+          <div class="modal fade" id="editTaskModal" data-backdrop="true" data-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Изменение задачи</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="container">
+                    <label for="taskTitle">Название</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="taskTitle"
+                      placeholder="Заголовок задачи..."
+                    />
+                    <div class="form-group">
+                      <label for="taskDescription">Описание задачи</label>
+                      <textarea
+                        class="form-control"
+                        id="taskDescription"
+                        rows="8"
+                        placeholder="Описание задачи..."
+                      ></textarea>
+                    </div>
+          
+                    <form>
+                      <p>
+                        <label for="date">Дата: </label>
+                        <input type="date" id="date" name="date"/>
+                      </p>
+                      <p>
+                        <label for="time">Время: </label>
+                        <input type="time" id="time" name="time"/>
+                      </p>
+                    </form>
+                    <div class="form-check  d-flex justify-content-between">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                      <label class="form-check-label" for="flexCheckChecked">
+                        Высший приоритет
+                      </label>
+                    </div>
+                  </div>    
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                  <button type="button" class="btn btn-primary">Изменить</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <div type="button" class="card task-card" data-toggle="modal" data-target="#staticBackdrop">
+          <!-- Модальное окно для показа описания задачи -->
+          <div class="modal" id="descriptionTaskModal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Описание задачи</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Описание отсутствует. Чтобы добавить, отредактируйте задачу.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div type="button" class="card task-card">
             <div class="container_task-card">
               <div class="card-info">
+                <div class="form-check">
+                  <input class="form-check-input check-complete" type="checkbox" value="" id="defaultCheck1">
+                  <label class="form-check-label" for="defaultCheck1">
+                    <p>Приём у зубного</p>
+                  </label>
+                </div>
                 <span class="badge badge-danger badge-pill">Важно!</span>
-                <div class="task-title">Приём у зубного</div>
-                <div class="task-time">10:00</div>
+                <div class="task-time d-flex align-items-center">10:00</div>
               </div>
             
               <div class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"></a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Удалить</a></li>
-                  <li><a class="dropdown-item" href="add_task.html">Редактировать</a></li>
+                  <li><a class="dropdown-item" data-toggle="modal" data-target="#editTaskModal">Редактировать</a></li>
                 </ul>
               </div>
             </div>
           </div>
-  
-          <div type="button" class="card task-card" data-toggle="modal" data-target="#staticBackdrop">
+
+          <div type="button" class="card task-card" data-toggle="modal" data-target="#descriptionTaskModal">
             <div class="container_task-card">
-              <div class="card-info"> 
-                <span class="badge badge-primary badge-pill">Primary</span>
-                <div class="task-title">Сходить в магазин</div>
-                <div class="task-time">Не определено</div>
+              
+              <div class="card-info">
+                <div class="form-check">
+                  <input class="form-check-input check-complete" type="checkbox" value="" id="defaultCheck1">
+                  <label class="form-check-label" for="defaultCheck1">
+                    <p class="taskText">Сходить в магазин</p>
+                  </label>
+                </div> 
+
+                <div class="task-time d-flex align-items-center">Не определено</div>
               </div>
               
               <div class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"></a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Удалить</a></li>
-                  <li><a class="dropdown-item" href="add_task.html">Редактировать</a></li>
+                  <li><a class="dropdown-item" data-toggle="modal" data-target="#editTaskModal">Редактировать</a></li>
                 </ul>
               </div>
             </div>
-            
             
             <!-- <div>
               <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editTaskModal">Редактировать</button>
@@ -127,37 +219,48 @@
             </div> -->
           </div>
 
-          <div type="button" class="card task-card" data-toggle="modal" data-target="#staticBackdrop">
+          <div type="button" class="card task-card" data-toggle="modal" data-target="#descriptionTaskModal">
             <div class="container_task-card">
-              <div class="card-info">
-                <span class="badge badge-primary badge-pill">Primary</span>
-                <div class="task-title">Сходить в магазин</div>
-                <div class="task-time">Не определено</div>
-              </div>
+              
+                
+                <div class="card-info">
+                  <div class="form-check">
+                    <input class="form-check-input check-complete" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      <p class="taskText">Сходить в магазин</p>
+                    </label>
+                  </div>
+                  <div class="task-time d-flex align-items-center">Не определено</div>
+                </div>
+              
+              
               
               <div class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"></a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Удалить</a></li>
-                  <li><a class="dropdown-item" href="add_task.html">Редактировать</a></li>
+                  <li><a class="dropdown-item" data-toggle="modal" data-target="#editTaskModal">Редактировать</a></li>
                 </ul>
               </div>
             </div>
           </div>
   
-          <div type="button" class="card task-card" data-toggle="modal" data-target="#staticBackdrop">
+          <div type="button" class="card task-card" data-toggle="modal" data-target="#descriptionTaskModal">
             <div class="container_task-card">
               <div class="card-info">
-                <span class="badge badge-success badge-pill">Выполнено</span>
-                <div class="task-title">Полить цветы</div>
-                <div class="task-time">Не определено</div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                  <label class="form-check-label" for="flexCheckCheckedDisabled">
+                    <p class="completeTaskText">Полить цветы</p>
+                  </label>
+                </div>
               </div>
               
               <div class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"></a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Удалить</a></li>
-                  <li><a class="dropdown-item" href="add_task.html">Редактировать</a></li>
+                  <li><a class="dropdown-item" data-toggle="modal" data-target="#editTaskModal">Редактировать</a></li>
                 </ul>
               </div>
             </div>
