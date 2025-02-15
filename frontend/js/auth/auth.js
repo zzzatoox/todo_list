@@ -1,8 +1,5 @@
 import instance from "../api.js";
 
-const loginForm = document.getElementById("login-form");
-const registerForm = document.getElementById("register-form");
-
 export const handleLogin = async (email, password) => {
   try {
     const response = await instance.post("/auth/login", {

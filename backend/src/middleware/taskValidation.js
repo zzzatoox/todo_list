@@ -17,8 +17,8 @@ exports.validateTaskCreation = [
     .withMessage("Статус должен быть числом от 1 до 2"),
   body("priority_id")
     .optional()
-    .isInt({ min: 1, max: 3 })
-    .withMessage("Приоритет должен быть числом от 1 до 3"),
+    .isInt({ min: 1, max: 2 })
+    .withMessage("Приоритет должен быть числом от 1 до 2"),
 
   (req, res, next) => {
     const errors = validationResult(req);
@@ -43,8 +43,8 @@ exports.validateTaskUpdate = [
   body("due_date").optional().isISO8601().withMessage("Неверный формат даты"),
   body("priority_id")
     .optional()
-    .isInt({ min: 1, max: 3 })
-    .withMessage("Приоритет должен быть числом от 1 до 3"),
+    .isInt({ min: 1, max: 2 })
+    .withMessage("Приоритет должен быть числом от 1 до 2"),
 
   (req, res, next) => {
     const errors = validationResult(req);
