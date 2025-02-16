@@ -6,7 +6,7 @@
 
 - **Дмитрий Копцев** - [@DmitryyDDD](https://github.com/DmitryyDDD) - Верстка страниц (HTML, CSS, Bootstrap)
 - **Никита Лазарев** - [@zzzatoox](https://github.com/zzzatoox) - Разработка бэкэнда, создание API, реализация запросов Axios
-- **Дарья Соколова** - Верстка страниц (HTML, CSS, Bootstrap)
+- **Дарья Соколова** - [@s0kolovadasha](https://github.com/s0kolovadasha) Верстка страниц (HTML, CSS, Bootstrap)
 - **Роман Мосолов** - Написание руководства пользователя
 - **Михаил Доломанов** - Проектирование и реализация базы данных
 - **Никита Кочарян** - Тестирование API
