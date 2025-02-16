@@ -40,7 +40,15 @@ exports.validateTaskUpdate = [
     .optional()
     .isLength({ max: 255 })
     .withMessage("Описание не должно превышать 255 символов"),
-  body("due_date").optional().isISO8601().withMessage("Неверный формат даты"),
+  body("due_date")
+    .optional()
+    .custom((value) => {
+      if (value === null || value === undefined) {
+        return true;
+      }
+      return isISO8601(value);
+    })
+    .withMessage("Неверный формат даты"),
   body("priority_id")
     .optional()
     .isInt({ min: 1, max: 2 })

@@ -4,6 +4,8 @@ import { handleLogout } from "./auth/auth.js";
 import {
   fetchTasks,
   createTask,
+  updateTask,
+  completeTask,
   getTaskById,
   deleteTask,
 } from "./tasks/tasks.js";
@@ -83,56 +85,55 @@ function renderTasks(tasks) {
     const taskItem = document.createElement("div");
     taskItem.className = "task-item";
 
+    const isCompleted = task.status_name === "Завершена";
+
     taskItem.innerHTML = `
       <div type="button" class="card task-card" data-toggle="modal" data-target="#descriptionTaskModal" onclick="showTaskDetails(${
         task.task_id
       })">
-      <div class="container_task-card">
-        <div class="card-info">
-          <div class="form-check">
-            <input class="form-check-input check-complete" type="checkbox" value="" id="defaultCheck${
-              task.task_id
-            }">
-            <label class="form-check-label" for="defaultCheck${task.task_id}">
-              <p>${task.title}</p>
-            </label>
+        <div class="container_task-card">
+          <div class="card-info">
+            <div class="form-check">
+              <input class="form-check-input check-complete" type="checkbox" value="" id="defaultCheck${
+                task.task_id
+              }" ${isCompleted ? "checked" : ""}>
+              <label class="form-check-label" for="defaultCheck${task.task_id}">
+                <p style="text-decoration: ${
+                  isCompleted ? "line-through" : "none"
+                }">${task.title || "Без названия"}</p>
+              </label>
+            </div>
+            ${
+              task.name === "Высокий"
+                ? '<span class="badge badge-danger badge-pill">Важно!</span>'
+                : ""
+            }
+            <div class="task-time d-flex align-items-center" style="display: ${
+              isCompleted ? "none" : "block"
+            }">${
+      task.due_date ? new Date(task.due_date).toLocaleString() : "Не определено"
+    }</div>
           </div>
-          ${
-            task.name === "Высокий"
-              ? '<span class="badge badge-danger badge-pill">Важно!</span>'
-              : ""
-          }
-          <div class="task-time d-flex align-items-center">${
-            task.due_date
-              ? new Date(task.due_date).toLocaleString()
-              : "Не определено"
-          }</div>
+          <div class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" onclick="event.stopPropagation(); handleDeleteTask(${
+                task.task_id
+              })">Удалить</a></li>
+              <li><a class="dropdown-item" data-toggle="modal" data-target="#editTaskModal" onclick="event.stopPropagation(); handleEditTask(${
+                task.task_id
+              })">Редактировать</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"></a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#" onclick="event.stopPropagation(); handleDeleteTask(${
-              task.task_id
-            })">Удалить</a></li>
-            <li><a class="dropdown-item" data-toggle="modal" data-target="#editTaskModal" onclick="event.stopPropagation(); handleEditTask(${
-              task.task_id
-            })">Редактировать</a></li>
-          </ul>
-        </div>
-      </div>
       </div>
     `;
 
     const checkbox = taskItem.querySelector(".check-complete");
     checkbox.addEventListener("click", (e) => {
       e.stopPropagation();
-      handleTaskCompletion(e.target.dataset.taskId);
-    });
-
-    taskItem.addEventListener("click", (e) => {
-      if (!e.target.classList.contains("check-complete")) {
-        showTaskDetails(task.task_id);
-      }
+      const newStatusId = e.target.checked ? 2 : 1;
+      handleTaskCompletion(task.task_id, newStatusId);
     });
 
     taskListContainer.appendChild(taskItem);
@@ -196,15 +197,15 @@ window.handleEditTask = async (taskId) => {
   $("#editTaskModal").modal("show");
 };
 
-window.updateTask = async () => {
+window.handleUpdateTask = async () => {
   const title = document.getElementById("editTaskTitle").value;
   const description = document.getElementById("editTaskDescription").value;
   const date = document.getElementById("editDate").value;
   const time = document.getElementById("editTime").value;
   const due_date = date && time ? `${date}T${time}:00` : null;
   const priority_id = document.getElementById("editFlexCheckChecked").checked
-    ? 1
-    : 2;
+    ? 2
+    : 1;
 
   try {
     await updateTask(currentTaskId, title, description, due_date, priority_id);
@@ -213,6 +214,16 @@ window.updateTask = async () => {
     $("#editTaskModal").modal("hide");
   } catch (error) {
     console.error("Ошибка при обновлении задачи:", error);
+  }
+};
+
+window.handleTaskCompletion = async (taskId, newStatusId) => {
+  try {
+    await completeTask(taskId, newStatusId);
+    const tasks = await fetchTasks();
+    renderTasks(tasks);
+  } catch (error) {
+    console.error("Ошибка при изменении статуса задачи:", error);
   }
 };
 

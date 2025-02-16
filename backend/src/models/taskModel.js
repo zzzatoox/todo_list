@@ -5,7 +5,7 @@ class TaskModel {
     const result = await pool.query(
       `
       SELECT tasks.task_id, tasks.title, tasks.description, tasks.created_at, tasks.updated_at, tasks.due_date,
-             task_statuses.name, task_priorities.name
+             task_statuses.name as status_name, task_priorities.name
       FROM tasks
       JOIN task_statuses ON tasks.status_id = task_statuses.status_id
       JOIN task_priorities ON tasks.priority_id = task_priorities.priority_id

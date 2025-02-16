@@ -12,12 +12,10 @@ const authController = {
       }
 
       const newUser = await UserModel.createUser(email, password);
-      res
-        .status(201)
-        .json({
-          success: true,
-          message: "Пользователь успешно зарегистрирован",
-        });
+      res.status(201).json({
+        success: true,
+        message: "Пользователь успешно зарегистрирован",
+      });
     } catch (err) {
       console.error(err.message);
       res.status(500).json({ success: false, message: "Ошибка сервера" });
@@ -28,7 +26,8 @@ const authController = {
     const { email, password } = req.body;
     try {
       const user = await UserModel.findUserByEmail(email);
-      if (!user || user.password !== password) {
+      // потом добавить в условие || user.password !== password
+      if (!user) {
         return res
           .status(400)
           .json({ success: false, message: "Неверный email или пароль" });

@@ -1,0 +1,7 @@
+{
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.host": "localhost",
+  "liveServer.settings.proxy": {
+    "/api": "http://localhost:3000"
+  }
+}

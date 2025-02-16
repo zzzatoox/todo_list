@@ -41,6 +41,48 @@ export const createTask = async (title, description, due_date, priority_id) => {
   }
 };
 
+export const updateTask = async (
+  taskId,
+  title,
+  description,
+  due_date,
+  priority_id
+) => {
+  try {
+    const response = await instance.put(`/tasks/${taskId}`, {
+      title,
+      description,
+      due_date,
+      priority_id,
+    });
+    console.log(response.data);
+    if (response.data) {
+      return response.data;
+    } else {
+      throw new Error(response.data.message);
+    }
+  } catch (error) {
+    console.error("Ошибка при обновлении задачи:", error.message);
+    throw error;
+  }
+};
+
+export const completeTask = async (taskId, statusId) => {
+  try {
+    const response = await instance.put(`/tasks/${taskId}/status`, {
+      status_id: statusId,
+    });
+    if (response.data) {
+      return response.data;
+    } else {
+      throw new Error(response.data.message);
+    }
+  } catch (error) {
+    console.error("Ошибка при изменении статуса задачи:", error.message);
+    throw error;
+  }
+};
+
 export const getTaskById = async (task_id) => {
   try {
     const response = await instance.get(`/tasks/${task_id}`);

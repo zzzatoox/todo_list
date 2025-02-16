@@ -62,6 +62,7 @@ const taskController = {
         due_date,
         priority_id
       );
+
       if (!updatedTask) {
         return res.status(404).json({ message: "Задача не найдена" });
       }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Today</title>
+    <title>To-Do List - Задачи</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -26,7 +26,7 @@
     <main class="main">
       <div class="d-flex">
         <div class="container">
-          <h2>Сегодня</h2>
+          <h2>Задачи</h2>
           <div class="mt-4" id="task-list">
             <!-- Задачи будут добавляться сюда динамически -->
           </div>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-                  <button type="button" class="btn btn-primary" onclick="updateTask()">Изменить</button>
+                  <button type="button" class="btn btn-primary" onclick="handleUpdateTask()">Изменить</button>
                 </div>
               </div>
             </div>
