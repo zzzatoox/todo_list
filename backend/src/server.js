@@ -1,4 +1,5 @@
 const express = require("express");
+const morgan = require("morgan");
 const session = require("express-session");
 const cors = require("cors");
 const taskRoutes = require("./routes/taskRoutes");
@@ -9,7 +10,13 @@ require("dotenv").config();
 const app = express();
 const port = 3000;
 
-app.use(cors());
+const corsOptions = {
+  origin: process.env.FRONTEND,
+  credentials: true,
+};
+
+app.use(morgan("tiny"));
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(
   session({
@@ -23,6 +30,14 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api", taskRoutes);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+app.get("/api/test-session", (req, res) => {
+  if (req.session.user_id) {
+    res.json({ user_id: req.session.user_id, message: "Сессия активна" });
+  } else {
+    res.status(401).json({ message: "Сессия не найдена" });
+  }
+});
 
 app.get("/", (req, res) => {
   res.send("Hello from the backend!");

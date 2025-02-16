@@ -83,6 +83,31 @@ router.post(
 /**
  * @swagger
  * /tasks/{id}:
+ *   get:
+ *     summary: Получить задачу по ID
+ *     tags: [Tasks]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID задачи
+ *     responses:
+ *       200:
+ *         description: Задача успешно получена
+ *       401:
+ *         description: Неавторизован
+ *       404:
+ *         description: Задача не найдена
+ */
+router.get("/tasks/:id", authMiddleware, taskController.getTaskById);
+
+/**
+ * @swagger
+ * /tasks/{id}:
  *   put:
  *     summary: Обновить задачу
  *     tags: [Tasks]

@@ -32,6 +32,22 @@ class TaskModel {
     return result.rows[0];
   }
 
+  static async getTaskById(user_id, task_id) {
+    const result = await pool.query(
+      `
+      SELECT tasks.task_id, tasks.title, tasks.description, tasks.created_at, tasks.updated_at, tasks.due_date,
+             task_statuses.name AS status_name, task_priorities.name AS priority_name
+      FROM tasks
+      JOIN task_statuses ON tasks.status_id = task_statuses.status_id
+      JOIN task_priorities ON tasks.priority_id = task_priorities.priority_id
+      WHERE tasks.task_id = $1 AND tasks.user_id = $2
+    `,
+      [task_id, user_id]
+    );
+
+    return result.rows[0];
+  }
+
   static async updateTask(task_id, title, description, due_date, priority_id) {
     const result = await pool.query(
       "UPDATE tasks SET title = $2, description = $3, due_date = $4, priority_id = $5, updated_at = CURRENT_TIMESTAMP WHERE task_id = $1 RETURNING *",

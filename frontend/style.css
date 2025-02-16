@@ -174,7 +174,6 @@ h6 {
 
 .img-logo {
   margin: 19px 0 19px 19px;
-  margin-right: 120px;
 }
 
 .container {
@@ -198,7 +197,7 @@ h6 {
 
 .footer p {
   margin-bottom: 0px;
-  padding: 30px 0px 40px 40px;
+  padding: 30px;
 }
 
 .dropdown-toggle:after {
@@ -225,4 +224,8 @@ h6 {
 .card-info p {
   display: inline-block;
   margin: 0;
+}
+
+.modal-body p {
+  word-wrap: break-word;
 }

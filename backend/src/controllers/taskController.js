@@ -5,6 +5,7 @@ const taskController = {
     const user_id = req.user_id;
     try {
       const tasks = await TaskModel.getAllTasks(user_id);
+
       res.json(tasks);
     } catch (err) {
       console.error(err.message);
@@ -25,6 +26,24 @@ const taskController = {
         priority_id
       );
       res.json(newTask);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Ошибка сервера");
+    }
+  },
+
+  async getTaskById(req, res) {
+    const { id } = req.params;
+    const user_id = req.user_id;
+
+    try {
+      const task = await TaskModel.getTaskById(user_id, id);
+
+      if (!task) {
+        return res.status(404).json({ message: "Задача не найдена" });
+      }
+
+      res.json(task);
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Ошибка сервера");
