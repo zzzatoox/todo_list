@@ -8,9 +8,9 @@ class UserModel {
     return result.rows[0];
   }
 
-  static async findUserByEmail(email) {
+  static async findUserByEmail(email, password) {
     const result = await pool.query(
-      `SELECT * FROM users WHERE email = '${email}'`
+      `SELECT * FROM users WHERE email = '${email}' AND password = '${password}'`
     );
     return result.rows[0];
   }

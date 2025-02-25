@@ -25,8 +25,7 @@ const authController = {
   async login(req, res) {
     const { email, password } = req.body;
     try {
-      const user = await UserModel.findUserByEmail(email);
-      // потом добавить в условие || user.password !== password
+      const user = await UserModel.findUserByEmail(email, password);
       if (!user) {
         return res
           .status(400)
