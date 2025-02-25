@@ -46,7 +46,7 @@ exports.validateTaskUpdate = [
       if (value === null || value === undefined) {
         return true;
       }
-      return isISO8601(value);
+      return /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(value);
     })
     .withMessage("Неверный формат даты"),
   body("priority_id")
